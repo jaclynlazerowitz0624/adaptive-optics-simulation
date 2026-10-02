@@ -9,14 +9,14 @@ A C++ and SFML simulation modeling corneal rebound decay post-Ortho-K lens remov
 I built this simulation to explore how adaptive optics can address expected and unprecedented vision shifts. Having worn Ortho-K lenses for half my life, I experienced firsthand the unpredictable daily vision shifts caused by corneal rebound—and the complete lack of tools to track or get used to those changes between doctor visits. I created this simulation as a first step toward modeling how liquid crystal optical paths and continuous corneal decay monitoring could work together to bridge that gap.
 
 * **User Inputs:**  
-  _Corneal Decay Parameters_: Baseline refractive error values and exponential Corneal relaxation coefficients over time.  
-  _Dynamic Disturbances_: Interactive toggles stimulating optical path variations and environmental noise.
+  _Corneal Decay Settings/Parameters_: Baseline vision values and rates for how fast the cornea relaxes back over time.
+  _Live Controls_: Interactive toggles to tweak light path variations and test how the simulation handles environmental noise as you run it.
 * **Simulation Outputs:**  
-  _Visual Wavefront Render_: Real-time 2D SFML graphical interface displaying phase front shifts across the simulated liquid crystal array.  
- _Console Telemetry_: Live diagnostic output tracking focal error metrics, phase delays, and frame rate stability.
+  _Visual Wavefront View_: A real-time 2D SFML display showing light phase shifts moving across the simulated liquid crystal array.
+ _Console Diagnostics_: Live terminal update tracking focal error, phase delays, and frame rate performance.
 
 > **A Note on Engineering Scope:**
-> This is strictly a software simulation built to test math models and foster curiosity. Building physical liquid crystal adaptive lenses requires complex hardware integration, wavefront sensors, and bio-material testing far beyond simple code. This project serves as my personal sandbox to explore the underlying optical physics and challenge my C++ development skills.
+> This is strictly a software simulation built to test math models and foster curiosity. Building physical liquid crystal adaptive lenses requires complex hardware integration, wavefront sensors, and bio-material testing that is far more intricate and faceted than this project. This project serves as my personal sandbox to explore optical physics and challenge my C++ skills.
 
 ---
 
@@ -55,17 +55,17 @@ Measures how fast light patterns change or shift across the grid while adding re
 ## 🚀 Relevant Coursework & Engineering Horizons
 
 ### Class-to-Code Mapping
-* **AP Physics 2 & Honors Physics 1:** Applied physical optics principles—specifically Snell's Law, refractive index transitions, and wave phase shifts—to render dynamic light distortion across optical media.
-* **AP Calculus AB:** Leveraged continuous rates of change and exponential decay models (`R(t) = R0 * e^(-λt)`) to simulate post-Ortho-K corneal relaxation over time.
-* **AP Statistics:** Utilized probability distributions to inject realistic Gaussian noise and spatial perturbations into array nodes, modeling physical optical sensor noise.
-* **AP Computer Science A & Independent Java/C++:** Translated complex mathematical algorithms into modular, object-oriented code, managing real-time data flow inside the C++ execution loop.
-* **Regents Chemistry & Biology:** Grounded the corneal relaxation decay models in biological tissue behavior and biomechanical stress recovery concepts.
+* **AP Physics 2 & Honors Physics 1:** Used core physics concepts like Snell's law, wave behavior, and light bending and refraction to build the light distortion model.
+* **AP Calculus AB:** Used rates of change and exponential decay formulas to simulate how the cornea returns to its shape over time.
+* **AP Statistics:** Used probability distribution concepts to add realistic noise to the sensor array.
+* **AP Computer Science A & Independent Java/C++:** Turned math equations into clean C++ code and managed how data updates on screen in every frame.
+* **Regents Chemistry & Biology:** Used ideas from biology and tissue behavior to make sure the corneal relaxation model makes sense physically.
 
 ### Alignment with Electrical & Computer Engineering
-* **Signal Processing & Systems:** Mapping real-time wavefront phase deviations directly mirrors spatial signal modeling, digital noise filtering, and phase delay processing.
-* **Multivariable Calculus & Vector Analysis:** Computing directional rate-of-change across wavefront matrices prepares for 3D field calculations and sub-pixel resolution routines.
+* **Signal Processing & Systems:** Working with light wave delays in code is directly related to processing signals and filtering out clutter in digital systems.
+* **Multivariable Calculus (Some Concepts Learned Independently) & Advanced Math:** Calculating changes across a 2D grid builds a foundation for multivariable calculus, linear algebra, and 3D modeling.
 
 ### Future Scope & Explorations
-* **Wavefront Sensing Integration:** Simulating active sensor feedback loops to dynamically detect phase aberrations.
-* **Sub-Pixel Interpolation:** Enhancing visual rendering resolution for higher-fidelity wavefront display.
-* **Phase Correction Algorithms:** Implementing real-time feedback loops to calculate inverse phase delays across simulated liquid crystal matrix elements.
+* **Active Sensor Loops:** Adding a system that automatically detects visual blur and corrects it in real time.
+* **Better Visual Detail:** Improving render resolution to make light waves look smoother on screen.
+* **Real-Time Correction Algorithms:** Writing code that calculates exact inverse phase delays to flatten out light distortion automatically.

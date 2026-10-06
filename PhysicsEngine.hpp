@@ -5,4 +5,7 @@ class PhysicsEngine {
 public:
 	//Calculate coerneal radius at time t using exponential decay
 static float calculateCornealRadius(float initialRadius, float lambda, float timeInHours);
+
+static float calculateRefractedAngle(float n1, float n2, float incidentAngleRad);
+
 };

@@ -13,5 +13,11 @@ float PhysicsEngine::calculateCornealRadius(float initialRadius, float lambda, f
 	assert(currentRadius > 0.0f && "Corneal radius must be positive");
 
 	return currentRadius;
+
+	//Snell's Law implementation (AP Physics 2 / Wave Optics concept)
+	float PhysicsEngine::calculateRefractedAngle (float n1, float n2, float incidentAngleRad) {
+		float sinTheta2 = (n1 / n2) * std::sin(incidentAngleRad);
+		return std::asin(sinTheta2);
+	}
 }
 

@@ -8,4 +8,6 @@ static float calculateCornealRadius(float initialRadius, float lambda, float tim
 
 static float calculateRefractedAngle(float n1, float n2, float incidentAngleRad);
 
+static void generateWavefrontGrid(WavefrontPoint grid [20][20], float cornealRadius);
+
 };

@@ -13,6 +13,7 @@ float PhysicsEngine::calculateCornealRadius(float initialRadius, float lambda, f
 	assert(currentRadius > 0.0f && "Corneal radius must be positive");
 
 	return currentRadius;
+}
 
 	//Snell's Law implementation (AP Physics 2 / Wave Optics concept)
 	float PhysicsEngine::calculateRefractedAngle (float n1, float n2, float incidentAngleRad) {
@@ -22,5 +23,20 @@ float PhysicsEngine::calculateCornealRadius(float initialRadius, float lambda, f
 	sinTheta2 = std::clamp(sinTheta2, -1.0f, 1.0f);
 		return std::asin(sinTheta2);
 	}
-}
 
+void Physics Engine::generateWavefrontGrid(WavefrontPoint grid[20][20], float cornealRadius) {
+	for (int y = 0; y < 20; ++y) { 
+		for (int x = 0; x < 20; ++x) {
+			//Center grid coordinated from -1.0 to 1.0 across pupil area
+			float posX = (x - 10) / 10.0f;
+			float posY = (y - 10) / 10.0f;
+
+			grid[y][x].x = posX;
+			grid[y][x].y = posY;
+
+			//Phase delay varies quadratically with distance from pupil center
+			float radialDistanceSq = (posX * posY);
+			grid[y][x].phaseshift = radialDistanceSq * (1.0f / cornealRadius);
+		}
+	}
+}

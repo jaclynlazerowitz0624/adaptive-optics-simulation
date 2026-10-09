@@ -4,7 +4,7 @@
 #include "OpticsState.hpp"
 #include "PhysicsEngine.hpp"
 #include "NoiseGenerator.hpp"
-
+#include "Visualizer.hpp"
 
 int main () {
 	//Create an SFML window for the simulation 
@@ -15,7 +15,7 @@ int main () {
 	WavefrontPoint grid[20][20];
 	NoiseGenerator noiseGen(0.0f, 0.02f);
 
-	//Generate Initial wavefront grid and put in Gaussian noise
+	//Initialize spatial grid with default post-treatment corneal geometry
 	PhysicsEngine::generateWavefrontGrid(grid, DefaultConfig::DEFAULT_INITIAL_RADIUS);
 	noiseGen.applyGridNoise(grid);
 
@@ -27,6 +27,10 @@ int main () {
 	}
 
 	window.clear(sf::Color::Black);
+
+	//Execute frame pass for rendering wavefront matrix 
+	Visualizer::renderWavefrontGrid(window, grid);
+
 	window.display();
    }
 	return 0;

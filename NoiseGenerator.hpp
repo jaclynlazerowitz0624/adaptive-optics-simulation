@@ -1,5 +1,6 @@
 #pragma once
 #include <random>
+#include "OpticsState.hpp"
 
 class NoiseGenerator {
 private:
@@ -9,7 +10,5 @@ private:
 public:
 	NoiseGenerator(float mean, float stddev);
 	float getSample();
+	void applyGridNoise(WavefrontPoint grid[20][20]);
 };
-
-#include "OpticsState.hpp"
-void applyGridNoise(WavefrontPoint grid [20][20]);

@@ -1,7 +1,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "OpticState.hpp"
+#include "OpticsState.hpp"
 #include "PhysicsEngine.hpp"
 #include "NoiseGenerator.hpp"
 

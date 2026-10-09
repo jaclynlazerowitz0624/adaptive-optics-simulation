@@ -1,6 +1,7 @@
 #include "PhysicsEngine.hpp"
 #include <cmath>
 #include <cassert>
+#include <algorithm>
 
 float PhysicsEngine::calculateCornealRadius(float initialRadius, float lambda, float timeInHours) {
 
@@ -24,7 +25,7 @@ float PhysicsEngine::calculateCornealRadius(float initialRadius, float lambda, f
 		return std::asin(sinTheta2);
 	}
 
-void Physics Engine::generateWavefrontGrid(WavefrontPoint grid[20][20], float cornealRadius) {
+void PhysicsEngine::generateWavefrontGrid(WavefrontPoint grid[20][20], float cornealRadius) {
 	for (int y = 0; y < 20; ++y) { 
 		for (int x = 0; x < 20; ++x) {
 			//Center grid coordinated from -1.0 to 1.0 across pupil area
@@ -35,8 +36,8 @@ void Physics Engine::generateWavefrontGrid(WavefrontPoint grid[20][20], float co
 			grid[y][x].y = posY;
 
 			//Phase delay varies quadratically with distance from pupil center
-			float radialDistanceSq = (posX * posY);
-			grid[y][x].phaseshift = radialDistanceSq * (1.0f / cornealRadius);
+			float radialDistanceSq = (posX * posX) + (posY * posY);
+			grid[y][x].phaseShift = radialDistanceSq * (1.0f / cornealRadius);
 		}
 	}
 }

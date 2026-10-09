@@ -28,7 +28,7 @@ int main () {
 
 	window.clear(sf::Color::Black);
 
-	//Execute frame pass for rendering wavefront matrix 
+	//Render 20x20 phase grid onto 800x800 pixel canvas (padding: 35px, node radius: 12px) 
 	Visualizer::renderWavefrontGrid(window, grid);
 
 	window.display();

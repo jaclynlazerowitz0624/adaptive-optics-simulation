@@ -15,5 +15,14 @@ void InputHandler::handleInput(const sf::Event& event, SimulationControls& contr
 		else if (event.key.code == sf::Keyboard::N) {
 			controls.noiseEnabled = !controls.noiseEnabled;
 		}
+
+		//Up arrow -- accelerates the time progression rate
+		else if (event.key.code == sf::Keyboard::Up) {
+			controls.timeScale += 0.5f;
+	}
+		//Down arrow -- decelerates the time progression rate
+		else if (event.key.code == sf::Keyboard::Down) {
+			controls.timeScale -= 0.5f;
+		}
 	}
 }

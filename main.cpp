@@ -34,4 +34,14 @@ int main () {
 	window.display();
    }
 	return 0;
+
+
+	sf::Clock deltaClock;
+	float elapsedTimeInHours = 0.0f;
+	SimulationControls controls;
+	CorneaParams cornea = {
+		DefaultConfig::DEFAULT_REFRACTIVE_INDEX,
+		DefaultConfig::DEFAULT_DECAY_CONSTANT,
+		DefaultConfig::DEFAULT_INITIAL_RADIUS
+	};
 }

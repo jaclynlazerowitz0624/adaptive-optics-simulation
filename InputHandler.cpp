@@ -11,6 +11,11 @@ void InputHandler::handleInput(const sf::Event& event, SimulationControls& contr
 		if (event.mouseButton.button == sf::Mouse::Left) {
 			std::cout << "[Input: Click detected at X: "
 				<< event.mouseButton.x << ", Y: " << event.mouseButton.y << std::endl;
+
+		int gridX = event.mouseButton.x / (800 / 20);
+		int gridY = event.mouseButton.y / (800 / 20);
+		if (gridX >= 0 && gridX < 20 && gridY >= 0 && gridY < 20) {
+			cornea.currentRadius += 0.02f;
 		}
 	}
 }

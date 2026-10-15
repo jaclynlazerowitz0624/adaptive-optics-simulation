@@ -7,6 +7,15 @@ void InputHandler::handleInput(const sf::Event& event, SimulationControls& contr
 		if (event.key.code == sf::Keyboard::Space) {
 			controls.isPaused = !controls.isPaused;
 }
+	if (event.type == sf::Event::MouseButtonPressed) {
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			std::cout << "[Input: Click detected at X: "
+				<< event.mouseButton.x << ", Y: " << event.mouseButton.y << std::endl;
+		}
+	}
+}
+
+
 		//Key R -- resets corneal parameters to baseline initial defaults
 		else if (event.key.code == sf::Keyboard::R) {
 			cornea.currentRadius = DefaultConfig::DEFAULT_INITIAL_RADIUS;

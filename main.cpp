@@ -56,7 +56,7 @@ InputHandler::handleInput(event, controls, cornea);
 
 // Direct keyboard polling fallback for Chromebook compatibility
 if (keyCooldown.getElapsedTime().asMilliseconds() > 200) {
-if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
 controls.isPaused = !controls.isPaused;
 keyCooldown.restart();
 }
@@ -64,7 +64,7 @@ if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 controls.resetRequested = true;
 keyCooldown.restart();
 }
-if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::M)) {
 controls.noiseEnabled = !controls.noiseEnabled;
 keyCooldown.restart();
 }

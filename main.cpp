@@ -29,6 +29,7 @@ std::cout << "[Warning]: Could not load DejaVuSans.ttf font for HUD overlay." <<
 
 sf::Clock deltaClock;
 sf::Clock fpsClock;
+sf::Clock keyCooldown;
 int frameCount = 0;
 float currentFps = 0.0f;
 float elapsedTimeInHours = 0.0f;
@@ -51,6 +52,22 @@ if (event.type == sf::Event::Closed)
 window.close();
 
 InputHandler::handleInput(event, controls, cornea);
+}
+
+// Direct keyboard polling fallback for Chromebook compatibility
+if (keyCooldown.getElapsedTime().asMilliseconds() > 200) {
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+controls.isPaused = !controls.isPaused;
+keyCooldown.restart();
+}
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+controls.resetRequested = true;
+keyCooldown.restart();
+}
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)) {
+controls.noiseEnabled = !controls.noiseEnabled;
+keyCooldown.restart();
+}
 }
 
 if (controls.resetRequested) {

@@ -38,6 +38,17 @@ void PhysicsEngine::generateWavefrontGrid(WavefrontPoint grid[20][20], float cor
 			//Phase delay varies quadratically with distance from pupil center
 			float radialDistanceSq = (posX * posX) + (posY * posY);
 			grid[y][x].phaseShift = radialDistanceSq * (1.0f / cornealRadius);
+
+		}
+	}
+}
+	void PhysicsEngine::applyCorrectionLoop(WavefrontPoint grid[20][20]) {
+	for (int i + 0; i < 20; ++i) {
+		for(int j = 0; j < 20; ++j) {
+
+			//Adjusts wavefront phase spikes to mimick correction
+			grid[i][j].phaseValue *= 0.95f; 
+
 		}
 	}
 }

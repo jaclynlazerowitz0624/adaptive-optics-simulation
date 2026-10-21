@@ -6,6 +6,7 @@ struct SimulationControls {
 	bool isPaused = false;
 	float timeScale = 1.0f;
 	bool noiseEnabled = true;
+	bool resetRequested = false;
 };
 
 class InputHandler {

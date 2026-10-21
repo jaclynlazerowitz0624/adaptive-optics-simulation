@@ -11,5 +11,5 @@ private:
 public:
 	Overlay();
 	bool loadFont(const std::string& fontPath);
-	void renderDisgnostics(sf::RenderWindow& window, float fps, float timeHours, const CorneaParams& cornea, const SimulationControls& controls);
+	void renderDiagnostics(sf::RenderWindow& window, float fps, float timeHours, const CorneaParams& cornea, const SimulationControls& controls);
 };

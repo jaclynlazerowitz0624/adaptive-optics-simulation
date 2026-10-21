@@ -17,10 +17,12 @@ void Visualizer::renderWavefrontGrid(sf::RenderWindow& window, const WavefrontPo
 
 			//Normalize phase shift [0.0, 1.0] and map to 8-bit color intensity (0 to 255)
 			float normalizedPhase = std::clamp(grid[y][x].phaseShift, 0.0f, 1.0f);
-			sf::Uint8 intensity = static_cast<sf::Uint8>(normalizedPhase * 255.0f);
+			float scaledIntensity = normalizedPhase * 255.0f * 3.0f;
+			sf::Uint8 intensity = static_cast<sf::Uint8>(std::clamp(scaledIntensity, 0.0f, 255.0f));
+			pointShape.setFillColor(sf::Color(0, intensity, 255));
 
 			//Set color gradient: Cyan profile scaling with wavefront distortion
-			pointShape.setFillColor(sf::Color(0, intensity, intensity));
+			pointShape.setFillColor(sf::Color(0, intensity, 255));
 
 			window.draw(pointShape);
 		}

@@ -1,0 +1,8 @@
+#pragma once
+#include "OpticsState.hpp"
+
+class PhysicsEngine {
+public:
+	//Calculate coerneal radius at time t using exponential decay
+static float calculateCornealRadius(float initialRadius, float lambda, float timeInHours);
+};

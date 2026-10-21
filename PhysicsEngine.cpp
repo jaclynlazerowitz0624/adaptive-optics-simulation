@@ -47,7 +47,7 @@ void PhysicsEngine::generateWavefrontGrid(WavefrontPoint grid[20][20], float cor
 		for(int j = 0; j < 20; ++j) {
 
 			//Adjusts wavefront phase spikes to mimick correction
-			grid[i][j].phaseValue *= 0.95f; 
+			grid[i][j].phaseShift *= 0.95f; 
 
 		}
 	}

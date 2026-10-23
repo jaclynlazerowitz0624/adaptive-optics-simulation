@@ -19,7 +19,9 @@ NoiseGenerator noiseGen(0.0f, 0.02f);
 CorneaParams cornea = {
 DefaultConfig::DEFAULT_REFRACTIVE_INDEX,
 0.08f,
-DefaultConfig::DEFAULT_INITIAL_RADIUS;
+DefaultConfig::DEFAULT_INITIAL_RADIUS
+};
+
 SimulationControls controls;
 
 Overlay overlay;

@@ -24,7 +24,7 @@ void Overlay::renderDiagnostics(sf::RenderWindow& window, float fps, float timeH
 	ss << "Decay Constant (lambda): " << cornea.decayConstant << "\n";
 	ss << "Status: " << (controls.isPaused ? "PAUSED" : "RUNNING") << "\n";
 	ss << "Noise Injection: " << (controls.noiseEnabled ? "ON" : "OFF") << "\n";
-	ss << "[Space] Pause | [R] Reset | [N] Noise | [Up/Down] Speed";
+	ss << "[Space] Pause | [R] Reset | [N] Noise | [E] Export | [Up/Down] Speed";
 
 	diagnosticText.setString(ss.str());
 	window.draw(diagnosticText);

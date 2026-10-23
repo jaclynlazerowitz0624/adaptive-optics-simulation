@@ -70,6 +70,12 @@ keyCooldown.restart();
 }
 }
 
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+	std::ofstream logFile("optics_log.csv", std::ios::app);
+	logFile << elapsedTimeInHours << "," << currentFps << "," << cornea.currentRadius << "\n";
+	std::cout << "[System}: Telemetry exported to optics_log.csv" << std::endl;
+}
+
 if (controls.resetRequested) {
 elapsedTimeInHours = 0.0f;
 cornea.currentRadius = DefaultConfig::DEFAULT_INITIAL_RADIUS;

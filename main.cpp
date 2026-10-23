@@ -6,6 +6,7 @@
 #include "Visualizer.hpp"
 #include "InputHandler.hpp"
 #include "Overlay.hpp"
+#include <fstream>
 
 int main() {
 sf::RenderWindow window(sf::VideoMode(800, 800), "Adaptive Optics Simulation");

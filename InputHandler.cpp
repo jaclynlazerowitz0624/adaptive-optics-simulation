@@ -1,5 +1,6 @@
 #include "InputHandler.hpp"
 #include <algorithm>
+#include <iostream>
 
 void InputHandler::handleInput(const sf::Event& event, SimulationControls& controls, CorneaParams& cornea) {
 	if (event.type == sf::Event::KeyPressed) {

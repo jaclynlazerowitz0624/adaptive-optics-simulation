@@ -2,29 +2,30 @@
 #include <cmath>
 #include <algorithm>
 
-void Visualizer::renderWavefrontGrid(sf::RenderWindow& window, const WavefrontPoint grid[20][20]) {
-	const float circleRadius = 12.0f;
-	const float padding = 35.0f;
-	const float startX = 60.0f;
-	const float startY = 60.0f;
+void Visualizer::renderWavefrontGrid(sf::RenderWindow& window, const WavefrontPoint grid[20][20], float prescriptionDiopters, float viewingDistanceMeters, float cornealRadius) {
+    const float circleRadius = 12.0f;
+    const float padding = 35.0f;
+    const float startX = 60.0f;
+    const float startY = 60.0f;
+    const float centerX = 10.0f;
+    const float centerY = 10.0f;
 
-	for (int y = 0; y < 20; ++y) {
-		for (int x = 0; x < 20; ++x) {
-			sf::CircleShape pointShape(circleRadius);
+    for (int y = 0; y < 20; ++y) {
+        for (int x = 0; x < 20; ++x) {
+            sf::CircleShape pointShape(circleRadius);
+            pointShape.setPosition(startX + x * padding, startY + y * padding);
 
-			//Map 2D array index to screen pixel coordinates 
-			pointShape.setPosition(startX + x * padding, startY + y * padding);
+            float dx = static_cast<float>(x) - centerX;
+            float dy = static_cast<float>(y) - centerY;
+            float radiusSquared = (dx * dx) + (dy * dy);
 
-			//Normalize phase shift [0.0, 1.0] and map to 8-bit color intensity (0 to 255)
-			float normalizedPhase = std::clamp(grid[y][x].phaseShift, 0.0f, 1.0f);
-			float scaledIntensity = normalizedPhase * 255.0f * 3.0f;
-			sf::Uint8 intensity = static_cast<sf::Uint8>(std::clamp(scaledIntensity, 0.0f, 255.0f));
-			pointShape.setFillColor(sf::Color(0, intensity, 255));
+            float totalPower = prescriptionDiopters + (1.0f / viewingDistanceMeters);
+            float phaseError = totalPower * radiusSquared * 0.05f;
 
-			//Set color gradient: Cyan profile scaling with wavefront distortion
-			pointShape.setFillColor(sf::Color(0, intensity, 255));
+            int lcGrayValue = static_cast<int>((std::fmod(std::abs(phaseError), 6.28318f) / 6.28318f) * 255.0f);
 
-			window.draw(pointShape);
-		}
-	}
+            pointShape.setFillColor(sf::Color(lcGrayValue, lcGrayValue, lcGrayValue));
+            window.draw(pointShape);
+        }
+    }
 }

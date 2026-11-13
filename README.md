@@ -52,7 +52,7 @@ Uses an exponential decay equation, `R(t) = R0 * e^(-λt)`, to simulate how the 
 Measures how fast light patterns change or shift across the grid while adding realistic sensor noise to simulate real-world conditions.
 ---
 
-## 🚀 Relevant Coursework & Engineering Horizons
+## 🚀 Relevant Coursework & Engineering
 
 ### Class-to-Code Mapping
 * **AP Physics 2 & Honors Physics 1:** Used core physics concepts like Snell's law, wave behavior, and light bending and refraction to build the light distortion model.
